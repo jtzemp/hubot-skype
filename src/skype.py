@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import Skype4Py
 import sys
 import os
@@ -339,11 +339,11 @@ while True:
         chat = skype.Chat(room)
         if (messageText.strip() == '[call-start]'):
             call = GetCallFromChat(chat, True)
-        elif (messageText.strip()[0:6] == '[call-'):            
+        elif (messageText.strip()[0:6] == '[call-'):
             call = GetCallFromChat(chat, False)
             if not call is None or messageText.strip()[0:10] == '[call-and-':
                 SendCallMessage(call, messageText, chat)
-        else:            
+        else:
             chat = skype.Chat(room)
             skype._NextMessageIsFromBot = True
             chat.SendMessage(messageText)
